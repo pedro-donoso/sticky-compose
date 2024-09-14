@@ -4,9 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -21,11 +24,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme() {
                 Screen {
-                    LazyColumn {
-
+                    LazyColumn{
                         stickyHeader {
                             Text(
-                                text = "A"
+                                text = "A "
                             )
                         }
 
@@ -34,7 +36,7 @@ class MainActivity : ComponentActivity() {
                                 text = country,
                                 modifier = Modifier.padding(16.dp),
                                 style = MaterialTheme.typography.bodyLarge
-                                )
+                            )
                         }
                     }
                 }
@@ -47,7 +49,7 @@ class MainActivity : ComponentActivity() {
 fun Screen(content: @Composable () -> Unit) {
     MaterialTheme {
         Surface(color = MaterialTheme.colorScheme.background) {
-            content()
+                content()
         }
     }
 }
