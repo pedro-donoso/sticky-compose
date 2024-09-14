@@ -28,24 +28,28 @@ class MainActivity : ComponentActivity() {
                 Screen {
                     LazyColumn(
                         modifier = Modifier.fillMaxWidth()
-                    ){
-                        stickyHeader {
-                            Text(
-                                text = "A ",
-                                style = MaterialTheme.typography.headlineMedium,
-                                modifier = Modifier
-                                    .background(MaterialTheme.colorScheme.primaryContainer)
-                                    .padding(16.dp)
-                                    .fillMaxWidth()
-                            )
-                        }
+                    ) {
+                        val grouped = countries.groupBy { it[0] }
 
-                        items(countries) { country ->
-                            Text(
-                                text = country,
-                                modifier = Modifier.padding(16.dp),
-                                style = MaterialTheme.typography.bodyLarge
-                            )
+                        grouped.forEach { (header, items) ->
+                            stickyHeader {
+                                Text(
+                                    text = header.toString(),
+                                    style = MaterialTheme.typography.headlineMedium,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .background(MaterialTheme.colorScheme.primary)
+                                        .padding(16.dp)
+                                )
+                            }
+
+                            items(items) { country ->
+                                Text(
+                                    text = country,
+                                    modifier = Modifier.padding(16.dp),
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                            }
                         }
                     }
                 }
