@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -24,10 +26,17 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme() {
                 Screen {
-                    LazyColumn{
+                    LazyColumn(
+                        modifier = Modifier.fillMaxWidth()
+                    ){
                         stickyHeader {
                             Text(
-                                text = "A "
+                                text = "A ",
+                                style = MaterialTheme.typography.headlineMedium,
+                                modifier = Modifier
+                                    .background(MaterialTheme.colorScheme.primaryContainer)
+                                    .padding(16.dp)
+                                    .fillMaxWidth()
                             )
                         }
 
