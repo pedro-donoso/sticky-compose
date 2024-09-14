@@ -72,7 +72,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Screen(content: @Composable () -> Unit) {
     MaterialTheme {
-        Surface(color = MaterialTheme.colorScheme.background) {
+        Surface(color = MaterialTheme.colorScheme.secondary) {
                 content()
         }
     }
